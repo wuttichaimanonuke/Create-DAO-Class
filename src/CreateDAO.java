@@ -19,18 +19,20 @@ public class CreateDAO {
 	/**
 	 * @param args
 	 */
-	private static final String CLASSNAME = "CpbConfDctm";
+	private static final String CLASSNAME = "CpbDocTypeMain";
 	private static final String FILENAME_IDAO = 		"D:\\CreateClassDAO\\IDAO.txt";
 	private static final String FILENAME_DAO = 			"D:\\CreateClassDAO\\DAO.txt";
 	private static final String FILENAME_CLASS = 		"D:\\CreateClassDAO\\CLASS.txt";
 	private static final String FILENAME_ROWMAPPER = 	"D:\\CreateClassDAO\\ROWMAPER.txt";
-	private static final String DATATABLE = "CPB_CONF_DCTM";
+	private static final String DATATABLE = "CPB_DOC_TYPE_MAIN";
 	//int , Integer , long , Long , String , Date
 	// ,{"xxx","xxx","xxx"}
-	private static final String daoProperties[][]  = {	{"dcKey","String","DC_KEY"}
-														,{"dcValue","String","DC_VALUE"}
-														,{"dcModifyDate","Date","DC_MODIFY_DATE"}
-														,{"dcIsActive","String","DC_IS_ACTIVE"}
+	private static final String daoProperties[][]  = {	{"dtMainId","String","DT_MAIN_ID"}
+														,{"dtMainName","Date","DT_MAIN_NAME"}
+														,{"createUser","Integer","CREATE_USER"}
+														,{"createDatetime","Date","CREATE_DATETIME"}
+														,{"updateUser","Integer","UPDATE_USER"}
+														,{"updateDatetime","Date","UPDATE_DATETIME"}
 														};
 	
 	public static void main(String[] args) {
@@ -62,6 +64,7 @@ public class CreateDAO {
 				if (!chkImportDate) {
 					if (properties[1].equals("Date")) {
 						content += "import java.util.Date;\n";
+						chkImportDate = true;
 					}
 				}
 			}
