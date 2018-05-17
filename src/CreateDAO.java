@@ -19,20 +19,55 @@ public class CreateDAO {
 	/**
 	 * @param args
 	 */
-	private static final String CLASSNAME = "CpbDocTypeMain";
+	private static final String CMESSCHEMA = "cmesSchema";//ไม่มีให้ปล่อยค่าว่างไว้
+	private static final String CLASSNAME = "ToadPlanTable";//ตัวแรกตัวใหญ่
 	private static final String FILENAME_IDAO = 		"D:\\CreateClassDAO\\IDAO.txt";
 	private static final String FILENAME_DAO = 			"D:\\CreateClassDAO\\DAO.txt";
 	private static final String FILENAME_CLASS = 		"D:\\CreateClassDAO\\CLASS.txt";
 	private static final String FILENAME_ROWMAPPER = 	"D:\\CreateClassDAO\\ROWMAPER.txt";
-	private static final String DATATABLE = "CPB_DOC_TYPE_MAIN";
+	private static final String DATATABLE = "TOAD_PLAN_TABLE";
 	//int , Integer , long , Long , String , Date
 	// ,{"xxx","xxx","xxx"}
-	private static final String daoProperties[][]  = {	{"dtMainId","String","DT_MAIN_ID"}
-														,{"dtMainName","Date","DT_MAIN_NAME"}
-														,{"createUser","Integer","CREATE_USER"}
-														,{"createDatetime","Date","CREATE_DATETIME"}
-														,{"updateUser","Integer","UPDATE_USER"}
-														,{"updateDatetime","Date","UPDATE_DATETIME"}
+	private static final String daoProperties[][]  = {	 {"statementId","String","STATEMENT_ID"}
+														,{"planId","Integer","PLAN_ID"}
+														,{"timestamp","Date","TIMESTAMP"}
+														,{"remarks","String","REMARKS"}
+														,{"operation","String","OPERATION"}
+														,{"option","String","OPTIONS"}
+														,{"objectNode","String","OBJECT_NODE"}
+														,{"objectOwner","String","OBJECT_OWNER"}
+														,{"objectName","String","OBJECT_NAME"}
+														,{"objectAlias","String","OBJECT_ALIAS"}
+														,{"objectInstance","Integer","OBJECT_INSTANCE"}
+														,{"objectType","String","OBJECT_TYPE"}
+														,{"optimizer","String","OPTIMIZER"}
+														,{"searchColumns","Integer","SEARCH_COLUMNS"}
+														,{"id","Integer","ID"}
+														,{"parentId","Integer","PARENT_ID"}
+														,{"depth","Integer","DEPTH"}
+														,{"position","Integer","POSITION"}
+														,{"cost","Integer","COST"}
+														,{"cardinality","Integer","CARDINALITY"}
+														,{"bytes","Long","BYTES"}
+														,{"otherTag","String","OTHER_TAG"}
+														,{"partitionStart","String","PARTITION_START"}
+														,{"partitionStop","String","PARTITION_STOP"}
+														,{"partitionId","Integer","PARTITION_ID"}
+														,{"other","Long","OTHER"}
+														,{"distribution","String","DISTRIBUTION"}
+														,{"cpuCost","Long","CPU_COST"}
+														,{"ioCost","Long","IO_COST"}
+														,{"tempSpace","Integer","TEMP_SPACE"}
+														,{"accessPredicates","String","ACCESS_PREDICATES"}
+														,{"filterPredicates","String","FILTER_PREDICATES"}
+														,{"projection","String","PROJECTION"}
+														,{"time","Integer","TIME"}
+														,{"qblockName","String","QBLOCK_NAME"}
+														,{"otherXml","String","OTHER_XML"}
+//														,{"createDatetime","Date","CREATE_DATETIME"}
+//														,{"createUser","String","CREATE_USER"}
+//														,{"updateDatetime","Date","UPDATE_DATETIME"}
+//														,{"updateUser","String","UPDATE_USER"}
 														};
 	
 	public static void main(String[] args) {
@@ -242,11 +277,11 @@ public class CreateDAO {
 			content += "	private JdbcTemplate jdbcTemplate;\n";
 			content += "\n";
 			content += "	@Value(\"${cpb.cmes.schema}\")\n";
-			content += "	private String cmesSchema;\n";
+			content += "	private String "+CMESSCHEMA+";\n";
 			content += "\n";
 			content += "	@Override\n";
 			content += "	public List<"+CLASSNAME+"> getAll"+CLASSNAME+"s() throws Exception {\n";
-			content += "		String sql = \"SELECT * FROM \"+cmesSchema+\""+DATATABLE+"\";\n";
+			content += "		String sql = \"SELECT * FROM \"+"+CMESSCHEMA+"+\""+DATATABLE+"\";\n";
 			content += "		RowMapper<"+CLASSNAME+"> rowMapper = new "+CLASSNAME+"RowMapper();\n";
 			content += "		List<"+CLASSNAME+"> result = new ArrayList<"+CLASSNAME+">();\n";
 			content += "		try {\n";
