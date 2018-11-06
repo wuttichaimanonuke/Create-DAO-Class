@@ -19,51 +19,25 @@ public class CreateDAO {
 	/**
 	 * @param args
 	 */
-	private static final String CMESSCHEMA = "cmesSchema";//ไม่มีให้ปล่อยค่าว่างไว้
-	private static final String CLASSNAME = "ToadPlanTable";//ตัวแรกตัวใหญ่
+	private static final String CMESSCHEMA = "ANALYZERLOTTERY";//ไม่มีให้ปล่อยค่าว่างไว้
+	private static final String CLASSNAME = "Users";//ตัวแรกตัวใหญ่
 	private static final String FILENAME_IDAO = 		"D:\\CreateClassDAO\\IDAO.txt";
 	private static final String FILENAME_DAO = 			"D:\\CreateClassDAO\\DAO.txt";
 	private static final String FILENAME_CLASS = 		"D:\\CreateClassDAO\\CLASS.txt";
 	private static final String FILENAME_ROWMAPPER = 	"D:\\CreateClassDAO\\ROWMAPER.txt";
-	private static final String DATATABLE = "TOAD_PLAN_TABLE";
+	private static final String DATATABLE = "USERS";
 	//int , Integer , long , Long , String , Date
 	// ,{"xxx","xxx","xxx"}
-	private static final String daoProperties[][]  = {	 {"statementId","String","STATEMENT_ID"}
-														,{"planId","Integer","PLAN_ID"}
-														,{"timestamp","Date","TIMESTAMP"}
-														,{"remarks","String","REMARKS"}
-														,{"operation","String","OPERATION"}
-														,{"option","String","OPTIONS"}
-														,{"objectNode","String","OBJECT_NODE"}
-														,{"objectOwner","String","OBJECT_OWNER"}
-														,{"objectName","String","OBJECT_NAME"}
-														,{"objectAlias","String","OBJECT_ALIAS"}
-														,{"objectInstance","Integer","OBJECT_INSTANCE"}
-														,{"objectType","String","OBJECT_TYPE"}
-														,{"optimizer","String","OPTIMIZER"}
-														,{"searchColumns","Integer","SEARCH_COLUMNS"}
-														,{"id","Integer","ID"}
-														,{"parentId","Integer","PARENT_ID"}
-														,{"depth","Integer","DEPTH"}
-														,{"position","Integer","POSITION"}
-														,{"cost","Integer","COST"}
-														,{"cardinality","Integer","CARDINALITY"}
-														,{"bytes","Long","BYTES"}
-														,{"otherTag","String","OTHER_TAG"}
-														,{"partitionStart","String","PARTITION_START"}
-														,{"partitionStop","String","PARTITION_STOP"}
-														,{"partitionId","Integer","PARTITION_ID"}
-														,{"other","Long","OTHER"}
-														,{"distribution","String","DISTRIBUTION"}
-														,{"cpuCost","Long","CPU_COST"}
-														,{"ioCost","Long","IO_COST"}
-														,{"tempSpace","Integer","TEMP_SPACE"}
-														,{"accessPredicates","String","ACCESS_PREDICATES"}
-														,{"filterPredicates","String","FILTER_PREDICATES"}
-														,{"projection","String","PROJECTION"}
-														,{"time","Integer","TIME"}
-														,{"qblockName","String","QBLOCK_NAME"}
-														,{"otherXml","String","OTHER_XML"}
+	private static final String daoProperties[][]  = {	 {"uId","String","U_ID"}
+														,{"uUsername","String","U_USERNAME"}
+														,{"uPassword","String","U_PASSWORD"}
+														,{"uDisplayName","String","U_DISPLAYNAME"}
+														,{"uDiscription","String","U_DESCRIPTION"}
+														,{"uActive","String","U_ACTIVE"}
+														,{"modifyDate","Date","MODIFYDATE"}
+														,{"modifyBy","String","MODIFYBY"}
+														,{"createDatetime","Date","CREATEDATETIME"}
+														,{"createBy","String","CREATEBY"}
 //														,{"createDatetime","Date","CREATE_DATETIME"}
 //														,{"createUser","String","CREATE_USER"}
 //														,{"updateDatetime","Date","UPDATE_DATETIME"}
@@ -276,7 +250,7 @@ public class CreateDAO {
 			content += "	@Autowired\n";
 			content += "	private JdbcTemplate jdbcTemplate;\n";
 			content += "\n";
-			content += "	@Value(\"${cpb.cmes.schema}\")\n";
+			content += "	@Value(\"${database.schema}\")\n";
 			content += "	private String "+CMESSCHEMA+";\n";
 			content += "\n";
 			content += "	@Override\n";
